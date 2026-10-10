@@ -28,6 +28,10 @@ app.get('/api/products', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log('Server is running on port 3000');
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log('Server is running on port 3000');
+    });
+}
+
+module.exports = app;
